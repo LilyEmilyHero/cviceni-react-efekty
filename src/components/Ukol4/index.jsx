@@ -4,11 +4,18 @@ Zadání 1: Vytvořte v této komponentě stav `nacteno`, který bude mít vých
 Zadání 2: Pomocí ternárního operátoru zobrazte text `Načítám…` nebo `Hotovo!` podle hodnoty
   ve stavu `nacteno`.
 */
+import { useEffect, useState } from 'react';
 
 export const Ukol4 = () => {
+  const [nacteno, setNacteno] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setNacteno(true), 3000);
+  }, []);
+
   return (
     <>
-      <p>Načítám…</p>
+      <p>{nacteno ? 'Hotovo' : 'Načítám'}</p>
     </>
   );
 };
